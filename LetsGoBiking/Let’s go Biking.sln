@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36511.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyService", "ProxyService\ProxyService.csproj", "{EE5222DB-1437-4A51-8EDC-268286675227}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutingServer", "RoutingServer\RoutingServer.csproj", "{ED43E69D-D19C-497C-A65C-2CDEF7D9E2C8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EE5222DB-1437-4A51-8EDC-268286675227} = {EE5222DB-1437-4A51-8EDC-268286675227}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeavyClient", "HeavyClient\HeavyClient.csproj", "{5028148B-FF84-4E94-BA92-71B5742A9AA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE5222DB-1437-4A51-8EDC-268286675227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE5222DB-1437-4A51-8EDC-268286675227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE5222DB-1437-4A51-8EDC-268286675227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE5222DB-1437-4A51-8EDC-268286675227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED43E69D-D19C-497C-A65C-2CDEF7D9E2C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED43E69D-D19C-497C-A65C-2CDEF7D9E2C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED43E69D-D19C-497C-A65C-2CDEF7D9E2C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED43E69D-D19C-497C-A65C-2CDEF7D9E2C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5028148B-FF84-4E94-BA92-71B5742A9AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5028148B-FF84-4E94-BA92-71B5742A9AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5028148B-FF84-4E94-BA92-71B5742A9AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5028148B-FF84-4E94-BA92-71B5742A9AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3788CBEC-D430-4DF6-AE7A-B28073C5AD57}
+	EndGlobalSection
+EndGlobal
