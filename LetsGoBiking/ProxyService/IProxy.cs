@@ -1,9 +1,6 @@
-﻿using System;
+﻿using ProxyService.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
 
 namespace ProxyService
 {
@@ -11,10 +8,12 @@ namespace ProxyService
     public interface IProxyService
     {
         [OperationContract]
-        string GetStations(string contract);
+        List<JCContract> GetAllContracts();
+
+        [OperationContract]
+        List<Station> GetStationsForContract(string contract);
 
     }
 
-    // TODO: ajoutez vos opérations de service ici
 }
 

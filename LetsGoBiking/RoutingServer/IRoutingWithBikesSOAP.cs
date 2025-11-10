@@ -1,7 +1,8 @@
-﻿using System;
+﻿using RoutingServer.ProxyService;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
+using System;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,10 +11,10 @@ namespace RoutingServer
     [ServiceContract]
     public interface IRoutingWithBikesSOAP
     {
-        [OperationContract]
-        string GetBestRoute(string start, string end);
+        [OperationContract(Name = "SOAP_GetAllContracts")]
+        List<JCContract> GetAllContracts();
 
-        [OperationContract]
-        string GetStations(string contract);
+        [OperationContract(Name = "SOAP_GetStationsForContract")]
+        List<Station> GetStationsForContract(string contract);
     }
 }

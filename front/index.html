@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title></title>
+    <link href="style.css" rel="stylesheet"/>
+    <link href="reset.css" rel="stylesheet"/>
+</head>
+<body>
+<app-header></app-header>
+
+<aside id="fullscreenaAside">
+    <h2>Chapitre</h2>
+    <ul>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+    </ul>
+</aside>
+<div id="sideMenu">
+    <nav>
+        <a href="">Introduction</a>
+        <a href="">Pages web statiques</a>
+        <a href="">Pages web dynamiques</a>
+        <a href="">Serveurs</a>
+        <a href="">Architecture</a>
+        <a href="">Bonus</a>
+    </nav>
+    <aside id="mobileAside">
+        <h2>Chapitre</h2>
+        <ul>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+        </ul>
+    </aside>
+</div>
+<main>
+    <address-input label="Start"></address-input>
+    <address-input label="End"></address-input>
+</main>
+<app-footer></app-footer>
+</body>
+<script src="index.js"></script>
+<script src="headerComponent/headerComponent.js"></script>
+<script src="footerComponent/footerComponent.js"></script>
+<script src ="addressInput/addressInput.js"></script>
+</html>

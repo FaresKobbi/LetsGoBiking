@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RoutingServer
 {
@@ -14,24 +12,16 @@ namespace RoutingServer
 
 
 
-        //OpenStreetMap CALLS
-        public string GetBestRoute(string start, string end)
+        public List<JCContract> GetAllContracts()
         {
-            Console.WriteLine($"[RoutingWithBikes] Calcul d’itinéraire de {start} à {end}");
-
-            // Exemple : ici tu appelleras ton Proxy SOAP
-            // var proxy = new ProxyClient();
-            // string stations = proxy.GetStations("Lyon");
-
-            return $"Itinéraire optimisé entre {start} et {end}";
+            Console.WriteLine($"[RoutingWithBikes] SOAP Call from Proxy getting all contract");
+            return proxyServiceClient.GetAllContracts().ToList();
         }
 
-
-        //JCDecaux CALLS
-        public string GetStations(string contract)
+        public List<Station> GetStationsForContract(string contract)
         {   
             Console.WriteLine($"[RoutingWithBikes] SOAP Call from Proxy getting stations from contract: {contract}");
-            return proxyServiceClient.GetStations(contract);
+            return proxyServiceClient.GetStationsForContract(contract).ToList();
         }
 
     }

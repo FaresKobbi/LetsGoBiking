@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.ServiceModel;
-using System.ServiceModel.Description;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProxyService
 {
@@ -16,10 +10,6 @@ namespace ProxyService
         {
             Uri baseAddress = new Uri("http://localhost:7001/Proxy/");
             ServiceHost host = null;
-            //host.AddServiceEndpoint(typeof(ProxyService),new BasicHttpBinding(),"");
-
-            //ServiceMetadataBehavior smb = new ServiceMetadataBehavior { HttpGetEnabled = true };
-            //host.Description.Behaviors.Add(smb);
 
             try
             {

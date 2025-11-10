@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connected Services\RoutingWithBikes\Reference.cs">
+    <Compile Include="Connected Services\RoutingWithBikesSOAP\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -55,11 +55,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connected Services\RoutingWithBikes\RoutingWithBikes.wsdl" />
-    <None Include="Connected Services\RoutingWithBikes\SOAP.xsd">
+    <None Include="Connected Services\RoutingWithBikesSOAP\HeavyClient.RoutingWithBikesSOAP.JCContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RoutingWithBikesSOAP\HeavyClient.RoutingWithBikesSOAP.Station.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RoutingWithBikesSOAP\RoutingWithBikes.wsdl" />
+    <None Include="Connected Services\RoutingWithBikesSOAP\SOAP.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\RoutingWithBikes\SOAP1.xsd">
+    <None Include="Connected Services\RoutingWithBikesSOAP\SOAP1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RoutingWithBikesSOAP\SOAP2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RoutingWithBikesSOAP\SOAP3.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -67,16 +79,16 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\RoutingWithBikes\" />
+    <WCFMetadataStorage Include="Connected Services\RoutingWithBikesSOAP\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\RoutingWithBikes\configuration91.svcinfo" />
+    <None Include="Connected Services\RoutingWithBikesSOAP\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\RoutingWithBikes\configuration.svcinfo" />
+    <None Include="Connected Services\RoutingWithBikesSOAP\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\RoutingWithBikes\Reference.svcmap">
+    <None Include="Connected Services\RoutingWithBikesSOAP\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

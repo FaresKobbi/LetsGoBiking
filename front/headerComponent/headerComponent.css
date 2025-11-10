@@ -1,0 +1,29 @@
+header > img {
+    height: 60px;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+}
+
+header {
+    border-bottom: 2px black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 50px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+nav > a {
+    font-size: 20px;
+    color: #000;
+}

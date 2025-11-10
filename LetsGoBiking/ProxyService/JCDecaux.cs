@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using ProxyService.Models;
 using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics.Contracts;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProxyService
 {
@@ -11,21 +10,24 @@ namespace ProxyService
     {
         private const string API_KEY = "e21efd98ac9873f5b32a0ca8d193b32240b8d4ad";
         private static readonly HttpClient client = new HttpClient();
-
-        public string GetStations(string contract)
+        public List<JCContract> GetAllContracts()
         {
-            try
-            {
-                string url = $"https://api.jcdecaux.com/vls/v1/stations?contract={contract}&apiKey={API_KEY}";
-                Console.WriteLine($"[JCDecaux] Calling REST API for {contract}");
-                var response = client.GetStringAsync(url).Result;
-                return response;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[ERROR] JCDecaux API call failed: {ex.Message}");
-                return null;
-            }
+
+            string url = $"https://api.jcdecaux.com/vls/v1/contracts?apiKey={API_KEY}";
+            var response = client.GetAsync(url).Result;
+            response.EnsureSuccessStatusCode();
+
+            var json = response.Content.ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject<List<JCContract>>(json);
+        }
+        public List<Station> GetStationsForContract(string contractName)
+        {
+            string url = $"https://api.jcdecaux.com/vls/v1/stations?contract={contractName}&apiKey={API_KEY}";
+            var response = client.GetAsync(url).Result;
+            response.EnsureSuccessStatusCode();
+
+            var json = response.Content.ReadAsStringAsync().Result;
+            return JsonConvert.DeserializeObject<List<Station>>(json);
         }
     }
 }

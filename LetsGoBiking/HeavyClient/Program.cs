@@ -1,9 +1,5 @@
-﻿using HeavyClient.RoutingWithBikes;
+﻿using HeavyClient.RoutingWithBikesSOAP;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HeavyClient
 {
@@ -11,14 +7,26 @@ namespace HeavyClient
     {
         static void Main(string[] args)
         {
-            RoutingWithBikesSOAPClient routingSOAP = new RoutingWithBikesSOAPClient();
-            Console.WriteLine(routingSOAP.GetStations("lyon"));
+            try
+            {
+                RoutingWithBikesSOAPClient routingWithBikesSOAPClient = new RoutingWithBikesSOAPClient();  
 
-            Console.WriteLine(routingSOAP.GetStations("lyon"));
 
-            Console.WriteLine(routingSOAP.GetStations("toulouse"));
+                Console.WriteLine(routingWithBikesSOAPClient.SOAP_GetAllContracts());
 
-            Console.ReadLine();
+                Console.WriteLine(routingWithBikesSOAPClient.SOAP_GetAllContracts());
+
+                Console.WriteLine(routingWithBikesSOAPClient.SOAP_GetStationsForContract("lyon"));
+
+                Console.WriteLine(routingWithBikesSOAPClient.SOAP_GetStationsForContract("lyon"));
+
+                Console.ReadLine();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                Console.ReadLine();
+            }
         }
     }
 }
