@@ -1,5 +1,6 @@
 ﻿using HeavyClient.RoutingWithBikesSOAP;
 using System;
+using System.Linq;
 
 namespace HeavyClient
 {
@@ -9,24 +10,18 @@ namespace HeavyClient
         {
             try
             {
-                RoutingWithBikesSOAPClient routingWithBikesSOAPClient = new RoutingWithBikesSOAPClient();  
+                var client = new RoutingWithBikesSOAPClient("BasicHttpBinding_IRoutingWithBikesSOAP");
 
-
-                Console.WriteLine(routingWithBikesSOAPClient.SOAP_GetAllContracts());
-
-                Console.WriteLine(routingWithBikesSOAPClient.SOAP_GetAllContracts());
-
-                Console.WriteLine(routingWithBikesSOAPClient.SOAP_GetStationsForContract("lyon"));
-
-                Console.WriteLine(routingWithBikesSOAPClient.SOAP_GetStationsForContract("lyon"));
-
-                Console.ReadLine();
+                Console.WriteLine("→ Endpoint: " + client.Endpoint.Address);
+                var contracts = client.SOAP_GetAllContracts();
+                Console.WriteLine($"Contrats reçus: {contracts}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
-                Console.ReadLine();
+                Console.WriteLine(ex);
             }
+
+            Console.ReadLine();
         }
     }
 }

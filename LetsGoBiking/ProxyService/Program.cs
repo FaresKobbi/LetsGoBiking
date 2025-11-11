@@ -8,7 +8,7 @@ namespace ProxyService
 
         static void Main(string[] args)
         {
-            Uri baseAddress = new Uri("http://localhost:7001/Proxy/");
+            Uri baseAddress = new Uri("http://localhost:8733/Design_Time_Addresses/ProxyService/ProxyService/");
             ServiceHost host = null;
 
             try
