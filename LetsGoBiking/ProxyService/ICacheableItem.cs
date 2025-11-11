@@ -8,6 +8,5 @@ namespace ProxyService
 {
     internal interface ICacheableItem
     {
-        string CacheKey { get; }
     }
 }

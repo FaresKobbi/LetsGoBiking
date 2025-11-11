@@ -1,13 +1,25 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.Xml.Linq;
 
 namespace ProxyService.Models
 {
+    [DataContract]
+
     public class Position
     {
+        [DataMember]
         public double Latitude { get; set; }
+
+        [DataMember]
         public double Longitude { get; set; }
+
     }
+
+    //JCDECAUX
+
 
     public class Availabilities
     {
@@ -42,7 +54,6 @@ namespace ProxyService.Models
         public Stand OverflowStands { get; set; }
         public DateTime LastUpdate { get; set; }
 
-        public string CacheKey => $"station_{ContractName}_{Number}";
     }
 
     public class JCContract : ICacheableItem
@@ -52,6 +63,62 @@ namespace ProxyService.Models
         public string Country_Code { get; set; }
         public List<string> Cities { get; set; }
 
-        public string CacheKey => $"contract_{Name}";
+    }
+
+
+    //ORS
+    public class GeoCodeProperties
+    {
+        [JsonProperty("locality")]
+        public string Locality { get; set; }     }
+
+    public class GeoCodeResponse : ICacheableItem
+    {
+        [JsonProperty("features")]
+        public List<GeoCodeFeature> Features { get; set; } = new List<GeoCodeFeature>();
+    }
+    public class GeoCodeFeature
+    {
+        [JsonProperty("geometry")]
+        public GeoCodeGeometry Geometry { get; set; }
+
+        [JsonProperty("properties")]
+        public GeoCodeProperties Properties { get; set; }
+    }
+    public class GeoCodeGeometry
+    {
+        [JsonProperty("coordinates")]
+        public List<double> Coordinates { get; set; }
+    }
+
+    public class RouteResponse : ICacheableItem
+    {
+        [JsonProperty("features")]
+        public List<RouteFeature> Features { get; set; } = new List<RouteFeature>();
+
+        public string CacheKey => throw new NotImplementedException();
+    }
+    public class RouteFeature
+    {
+        [JsonProperty("geometry")]
+        public RouteGeometry Geometry { get; set; }
+        [JsonProperty("properties")]
+        public RouteProperties Properties { get; set; }
+    }
+    public class RouteGeometry
+    {
+        // [[lng, lat], [lng, lat], ...]
+        [JsonProperty("coordinates")]
+        public List<List<double>> Coordinates { get; set; }
+    }
+    public class RouteProperties
+    {
+        [JsonProperty("summary")]
+        public RouteSummary Summary { get; set; }
+    }
+    public class RouteSummary
+    {
+        [JsonProperty("duration")]
+        public double DurationInSeconds { get; set; }
     }
 }

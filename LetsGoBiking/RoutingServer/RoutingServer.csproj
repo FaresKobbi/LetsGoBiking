@@ -72,7 +72,13 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProxyService\ProxyService.wsdl" />
+    <None Include="Connected Services\ProxyService\RoutingServer.ProxyService.GeoCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ProxyService\RoutingServer.ProxyService.JCContract.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyService\RoutingServer.ProxyService.RouteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ProxyService\RoutingServer.ProxyService.Station.datasource">

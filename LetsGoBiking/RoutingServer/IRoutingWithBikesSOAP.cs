@@ -16,5 +16,8 @@ namespace RoutingServer
 
         [OperationContract(Name = "SOAP_GetStationsForContract")]
         List<Station> GetStationsForContract(string contract);
+
+        [OperationContract(Name = "SOAP_GetBestRoute")]
+        string GetBestRoute(string start, string end);
     }
 }

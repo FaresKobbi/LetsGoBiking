@@ -14,9 +14,11 @@ namespace RoutingServer
                 host = new ServiceHost(typeof(RoutingWithBikes));
 
                 host.Open();
+                
+                double dou = 5.5484;
 
                 Console.WriteLine("✅ RoutingWithBikes service is running.");
-                Console.WriteLine("Available endpoints:");
+                Console.WriteLine($"Available endpoints: {dou}");
                 foreach (var ep in host.Description.Endpoints)
                 {
                     Console.WriteLine($" - {ep.Address.Uri}  →  {ep.Binding.Name}");
