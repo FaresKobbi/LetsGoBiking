@@ -13,11 +13,6 @@ namespace ProxyService
         [OperationContract]
         List<Station> GetStationsForContract(string contract);
 
-        [OperationContract]
-        GeoCodeResponse GetCoordinates(string address, int expiration);
-
-        [OperationContract]
-        RouteResponse GetRoute(string profile, string startCoords, string endCoords, int expiration);
     }
 
 }

@@ -10,8 +10,7 @@ namespace RoutingServer
     {
 
         ProxyServiceClient proxyServiceClient = new ProxyServiceClient();
-
-
+        private readonly ORS orsClient = new ORS();
 
         public List<JCContract> GetAllContracts()
         {
@@ -22,18 +21,17 @@ namespace RoutingServer
         public string GetBestRoute(string start, string end)
         {
             // 1️⃣ Géocodage
-            GeoCodeResponse startCord = proxyServiceClient.GetCoordinates(start, 1440);
-            GeoCodeResponse endCord = proxyServiceClient.GetCoordinates(end, 1440);
+            GeoCodeResponse startCord = orsClient.GetCoordinates(start);
+            GeoCodeResponse endCord = orsClient.GetCoordinates(end);
 
             double[] startCordDouble = startCord.Features.FirstOrDefault(f => f?.Geometry?.Coordinates != null).Geometry.Coordinates.ToArray();
             double[] endCordDouble = endCord.Features.FirstOrDefault(f => f?.Geometry?.Coordinates != null).Geometry.Coordinates.ToArray();
 
             // 2️⃣ Récupération de l'itinéraire
-            RouteResponse route = proxyServiceClient.GetRoute(
+            RouteResponse route = orsClient.GetRoute(
                 "foot-walking",
                 CoordsToString(startCordDouble),
-                CoordsToString(endCordDouble),
-                1440
+                CoordsToString(endCordDouble)
             );
 
             // 3️⃣ Extraction et affichage des coordonnées
