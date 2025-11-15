@@ -49,7 +49,7 @@ namespace ProxyService
 
             if (stations != null)
             {
-                CachedItem<List<ICacheableItem>> item = proxyCache.Get(key, 120);
+                CachedItem<List<ICacheableItem>> item = proxyCache.Get(key, 300);
                 item.Value = new List<ICacheableItem>(stations);
             }
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -63,4 +64,38 @@ namespace RoutingServer
             [JsonProperty("duration")]
             public double DurationInSeconds { get; set; }
         }
+
+    //ROUTE
+
+    [DataContract] 
+    public class RouteDetails
+    {
+        [DataMember]
+        public string RouteType { get; set; } 
+
+        [DataMember]
+        public double TotalDuration { get; set; } 
+
+        [DataMember]
+        public List<RouteSegment> Segments { get; set; } = new List<RouteSegment>();
+    }
+
+    [DataContract]
+    public class RouteSegment
+    {
+        [DataMember]
+        public string Mode { get; set; } 
+
+        [DataMember]
+        public string StartName { get; set; } 
+
+        [DataMember]
+        public string EndName { get; set; } 
+
+        [DataMember]
+        public double Duration { get; set; }
+
+        [DataMember]
+        public List<List<double>> Geometry { get; set; }
+    }
 }

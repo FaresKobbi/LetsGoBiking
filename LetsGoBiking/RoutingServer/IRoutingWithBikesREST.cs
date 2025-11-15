@@ -19,8 +19,10 @@ namespace RoutingServer
         List<Station> GetStationsForContract(string contract);
 
         [OperationContract(Name = "REST_GetBestRoute")]
-        [WebGet(UriTemplate = "/route?start={start}&end={end}", ResponseFormat = WebMessageFormat.Json)]
-        string GetBestRoute(string start, string end);
+        [WebInvoke(Method = "GET", UriTemplate = "/route?start={start}&end={end}",
+                   ResponseFormat = WebMessageFormat.Json,  
+                   BodyStyle = WebMessageBodyStyle.Bare)]
+        RouteDetails GetBestRoute(string start, string end);
 
     }
 }
