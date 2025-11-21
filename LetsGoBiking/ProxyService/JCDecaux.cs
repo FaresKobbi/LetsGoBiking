@@ -13,7 +13,7 @@ namespace ProxyService
         public List<JCContract> GetAllContracts()
         {
 
-            string url = $"https://api.jcdecaux.com/vls/v1/contracts?apiKey={API_KEY}";
+            string url = $"https://api.jcdecaux.com/vls/v3/contracts?apiKey={API_KEY}";
             var response = client.GetAsync(url).Result;
             response.EnsureSuccessStatusCode();
 
@@ -22,7 +22,7 @@ namespace ProxyService
         }
         public List<Station> GetStationsForContract(string contractName)
         {
-            string url = $"https://api.jcdecaux.com/vls/v1/stations?contract={contractName}&apiKey={API_KEY}";
+            string url = $"https://api.jcdecaux.com/vls/v3/stations?contract={contractName}&apiKey={API_KEY}";
             var response = client.GetAsync(url).Result;
             response.EnsureSuccessStatusCode();
 

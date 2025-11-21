@@ -18,6 +18,6 @@ namespace RoutingServer
         List<Station> GetStationsForContract(string contract);
 
         [OperationContract(Name = "SOAP_GetBestRoute")]
-        string GetBestRoute(string start, string end);
+        ItinaryResponse GetBestRoute(string start, string end);
     }
 }

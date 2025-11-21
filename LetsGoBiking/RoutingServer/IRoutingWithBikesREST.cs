@@ -20,7 +20,7 @@ namespace RoutingServer
 
         [OperationContract(Name = "REST_GetBestRoute")]
         [WebGet(UriTemplate = "/route?start={start}&end={end}", ResponseFormat = WebMessageFormat.Json)]
-        string GetBestRoute(string start, string end);
+        ItinaryResponse GetBestRoute(string start, string end);
 
     }
 }

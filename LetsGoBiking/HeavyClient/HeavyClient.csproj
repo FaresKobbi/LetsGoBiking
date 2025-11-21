@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\RoutingWithBikesSOAP\HeavyClient.RoutingWithBikesSOAP.ItinaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\RoutingWithBikesSOAP\HeavyClient.RoutingWithBikesSOAP.JCContract.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -72,6 +75,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RoutingWithBikesSOAP\SOAP3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RoutingWithBikesSOAP\SOAP41.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

@@ -27,7 +27,7 @@ namespace ProxyService
 
             if (contracts != null)
             {
-                CachedItem<List<ICacheableItem>> item = proxyCache.Get(key, 300);
+                CachedItem<List<ICacheableItem>> item = proxyCache.Get(key, 86400);
                 item.Value = new List<ICacheableItem>(contracts);
             }
 
